@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <div class="nav-link" id="result"></div>
+            </li>
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <button onclick="restart()" class="btn btn-outline-success my-2 my-sm-0" type="submit" >Restart</button>
+        </form>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col" onclick="turn(1)"><button id="s1" class="square" type="button" class="btn btn-success"></button>
+        </div>
+        <div class="col"><button id="s2" class="square" type="button" class="btn btn-success" onclick="turn(2)"></button>
+        </div>
+        <div class="col"><button id="s3" class="square" type="button" class="btn btn-success" onclick="turn(3)"></button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col"><button id="s4" class="square" type="button" class="btn btn-success" onclick="turn(4)"></button>
+        </div>
+        <div class="col"><button id="s5" class="square" type="button" class="btn btn-success" onclick="turn(5)"></button>
+        </div>
+        <div class="col"><button id="s6" class="square" type="button" class="btn btn-success" onclick="turn(6)"></button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col"><button id="s7" class="square" type="button" class="btn btn-success" onclick="turn(7)"></button>
+        </div>
+        <div class="col"><button id="s8" class="square" type="button" class="btn btn-success" onclick="turn(8)"></button>
+        </div>
+        <div class="col"><button id="s9" class="square" type="button" class="btn btn-success" onclick="turn(9)"></button>
+        </div>
+    </div>
+    <div class="row">
+        <!--			<div id="result"></div>-->
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="script.js" type="application/javascript"></script>
+<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body></html>

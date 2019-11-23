@@ -14,5 +14,10 @@ public class MainController {
     public String showMainPage(){
         return "mainPage";
     }
+    @GetMapping("/gamePage")
+    public String showGamePage(){
+        return "gamePage";
+    }
+
 
 }
