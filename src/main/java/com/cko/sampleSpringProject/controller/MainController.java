@@ -2,31 +2,31 @@ package com.cko.sampleSpringProject.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MainController {
-
-    @GetMapping("/loginPage")
+    @GetMapping("/auth")
     public String showLoginPage(){
-        return "loginPage";
+        return "LoginPage";
     }
     @GetMapping("/")
     public String showMainPage(){
-        return "mainPage";
+        return "MainPage";
     }
-    @GetMapping("/gamePage")
+    @GetMapping("/game")
     public String showGamePage(){
-        return "gamePage";
+        return "GamePage";
     }
-    @GetMapping("/testPage")
-    public String showTestPage(@RequestParam String argument){
-        System.out.println(argument);
-        return "testPage";
+    @GetMapping("/films")
+    public String showStartPageForFilms(){
+        return "StartPageForFilms";
     }
-    @GetMapping("/startPageFilms")
-    public String showStartPageFilms(){
-        return "startPageFilms";
+    @GetMapping("/map")
+    public String showDefaultMap(){
+        return "MapPage";
     }
-
+    @GetMapping("/test")
+    public String showTestPage(){
+        return "TestPages/TestPage";
+    }
 }

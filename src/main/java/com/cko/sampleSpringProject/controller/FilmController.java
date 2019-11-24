@@ -4,18 +4,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/startPageFilms")
+@RequestMapping("/films")
 public class FilmController {
-    @RequestMapping("/allFilms")
+    @RequestMapping("/all")
     public String showAllFilms(){
-        return "filmService/allFilms";
+        return "FilmService/AllFilms";
     }
-    @RequestMapping("/addFilms")
+    @RequestMapping("/add")
     public String showAddFilms(){
-        return "filmService/addFilms";
+        return "FilmService/AddFilm";
     }
-    @RequestMapping("/editFilms")
+    @RequestMapping("/edit")
     public String showEditFilms(){
-        return "filmService/editFilms";
+        return "FilmService/EditFilm";
     }
 }
