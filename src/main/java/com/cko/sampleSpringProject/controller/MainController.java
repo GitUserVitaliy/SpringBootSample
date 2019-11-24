@@ -25,8 +25,8 @@ public class MainController {
     public String showDefaultMap(){
         return "MapPage";
     }
-    @GetMapping("/test")
+    @GetMapping("/tests")
     public String showTestPage(){
-        return "TestPages/TestPage";
+        return "TestPage";
     }
 }

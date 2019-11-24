@@ -1,5 +1,5 @@
 function test() {
-    alert(123);
+    alert("Вы нажали alert.");
 }
 
 

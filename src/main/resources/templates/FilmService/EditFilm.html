@@ -36,7 +36,7 @@
                 <a class="nav-link" href="/">To Origin<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/test">To TestPage</a>
+                <a class="nav-link" href="/tests">To Tests</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -45,24 +45,27 @@
         </form>
     </div>
 </nav>
-<div class="container">
-    <div class="row">
-        <div class="col align-self-start">
+<div align="center"><h5>Editing a movie in the database.</h5></div>
+<div align="center">
+    <form>
+        <div class="form-group col-md-3">
+            <label for="formGroupExampleInput">*Movie title.</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="enter title">
         </div>
-        <div class="col align-self-center" id="rectangle">
-            <h3>
-                <p align="center">Edit Film</p>
-            </h3>
-            <p align="center"><input placeholder="title"></p>
-            <p align="center"><input placeholder="rating"></p>
-            <p align="center"><input placeholder="age"></p>
-            <p align="center">
-                <button>Change</button>
-            </p>
+        <div class="form-group col-md-3">
+            <label for="formGroupExampleInput2">*Rating.</label>
+            <input type="number" class="form-control" id="formGroupExampleInput2" placeholder="enter rating">
         </div>
-        <div class="col align-self-end">
+        <div class="form-group col-md-3">
+            <label for="formGroupExampleInput3">*Age restrictive Rating.</label>
+            <input type="number" class="form-control" id="formGroupExampleInput3" placeholder="enter age rating">
         </div>
-    </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Agreement with terms of use.</label>
+        </div>
+        <button type="button" class="btn btn-secondary btn-sm col-md-1" data-toggle="tooltip" data-placement="bottom" title="Editing a movie in the database.">Change</button>
+    </form>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

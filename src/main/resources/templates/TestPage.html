@@ -1,43 +1,40 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=в6fdff1ef-9fc7-424b-9322-5147e58b2e00&lang=ru_RU"
-            type="text/javascript">
-    </script>
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>MapPage</title>
+    <title>TestPage</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/">Origin</a>
+    <a class="navbar-brand" href="/">Tests</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="/map">Map<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="/game">Game</a>
+            <li class="nav-item">
+                <a class="nav-link" href="/">To Origin</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/films">To Films</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/tests">To Tests</a>
-            </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search in Origin" aria-label="Search">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search in Tests" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
     </div>
 </nav>
-<div id="map" style="width: 600px; height: 400px"></div>
-<button onclick="test()">CLICK</button>
-<!-- Script -->
-<script src="js/MapPage.js"></script>
+<div class="jumbotron">
+    <h1 class="display-4">Привет, пользователь!</h1>
+    <p class="lead">Вы сейчас находитесь в ветке Tests.</p>
+    <hr class="my-4">
+    <p>Использются служебные классы для типографики и расстояния содержимого в контейнере большего размера.</p>
+    <p>Работа с веткой Tests.</p>
+    <a class="btn btn-primary btn-md" href="/tests" role="button">Стартовая страница</a>
+</div>
 </body>
 </html>
