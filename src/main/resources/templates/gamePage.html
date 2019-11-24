@@ -1,61 +1,170 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-    <link rel="stylesheet" href="/css/style.css">
-    <title>Page</title>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Hello, world!</title>
+    <link rel="stylesheet" href="css/gamePage.css">
 </head>
-
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <div class="nav-link" id="result"></div>
-            </li>
 
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <button onclick="restart()" class="btn btn-outline-success my-2 my-sm-0" type="submit" >Restart</button>
-        </form>
-    </div>
-</nav>
 <div class="container">
     <div class="row">
-        <div class="col" onclick="turn(1)"><button id="s1" class="square" type="button" class="btn btn-success"></button>
+        <div class="col">
+            <button id="a1" class="area" onclick="turn(1)" disabled>
+            </button>
         </div>
-        <div class="col"><button id="s2" class="square" type="button" class="btn btn-success" onclick="turn(2)"></button>
+        <div class="col">
+            <button id="a2" class="area" onclick="turn(2)" disabled>
+            </button>
         </div>
-        <div class="col"><button id="s3" class="square" type="button" class="btn btn-success" onclick="turn(3)"></button>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col"><button id="s4" class="square" type="button" class="btn btn-success" onclick="turn(4)"></button>
-        </div>
-        <div class="col"><button id="s5" class="square" type="button" class="btn btn-success" onclick="turn(5)"></button>
-        </div>
-        <div class="col"><button id="s6" class="square" type="button" class="btn btn-success" onclick="turn(6)"></button>
+        <div class="col">
+            <button id="a3" class="area" onclick="turn(3)" disabled>
+            </button>
         </div>
     </div>
     <div class="row">
-        <div class="col"><button id="s7" class="square" type="button" class="btn btn-success" onclick="turn(7)"></button>
+        <div class="col">
+            <button id="a4" class="area" onclick="turn(4)" disabled>
+            </button>
         </div>
-        <div class="col"><button id="s8" class="square" type="button" class="btn btn-success" onclick="turn(8)"></button>
+        <div class="col">
+            <button id="a5" class="area" onclick="turn(5)" disabled>
+            </button>
         </div>
-        <div class="col"><button id="s9" class="square" type="button" class="btn btn-success" onclick="turn(9)"></button>
+        <div class="col">
+            <button id="a6" class="area" onclick="turn(6)" disabled>
+            </button>
         </div>
     </div>
     <div class="row">
-        <!--			<div id="result"></div>-->
+        <div class="col">
+            <button id="a7" class="area" onclick="turn(7)" disabled>
+            </button>
+        </div>
+        <div class="col">
+            <button id="a8" class="area" onclick="turn(8)" disabled>
+            </button>
+        </div>
+        <div class="col">
+            <button id="a9" class="area" onclick="turn(9)" disabled>
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div id="result" class="PEREVET"></div>
+        </div>
+    </div>
+    <button class="btn btn-dark" id="btnPlay" onclick="Play(this)">Play</button>
+    <div class="row">
+        <table>
+            <tr>
+                <th>
+                    <h3>Name</h3>
+                </th>
+                <th>
+                    <h3>Score</h3>
+                </th>
+                <th>
+                    <h3>Side color</h3>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <input id="player1" placeholder="Введите имя">
+                </th>
+                <th>
+                    <h3 id="score1"></h3>
+                </th>
+                <th>
+                    <button class="colorBtn" id="colorPlayer1" disabled></button>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <input id="player2" placeholder="Введите имя">
+                </th>
+                <th>
+                    <h3 id="score2"></h3>
+                </th>
+                <th>
+                    <button class="colorBtn" id="colorPlayer2" disabled></button>
+                </th>
+            </tr>
+        </table>
+
+
     </div>
 </div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <h4>choose side color</h4>
+            <div class="col">
+                <button class="colorBtn" id="color10" onclick="turn2(10)"></button>
+                <button class="colorBtn" id="color20" onclick="turn2(20)"></button>
+                <button class="colorBtn" id="color30" onclick="turn2(30)"></button>
+            </div>
+            <div class="col">
+                <button class="colorBtn" id="color40" onclick="turn2(40)"></button>
+                <button class="colorBtn" id="color50" onclick="turn2(50)"></button>
+                <button class="colorBtn" id="color60" onclick="turn2(60)"></button>
+            </div>
+            <div class="col">
+                <button class="colorBtn" id="color70" onclick="turn2(70)"></button>
+                <button class="colorBtn" id="color80" onclick="turn2(80)"></button>
+                <button class="colorBtn" id="color90" onclick="turn2(90)"></button>
+            </div>
+
+        </div>
+        <div class="col-4">
+            <h4>choose side color</h4>
+            <div class="col">
+                <button class="colorBtn" id="color11" onclick="turn2(11)"></button>
+                <button class="colorBtn" id="color22" onclick="turn2(22)"></button>
+                <button class="colorBtn" id="color33" onclick="turn2(33)"></button>
+            </div>
+            <div class="col">
+                <button class="colorBtn" id="color44" onclick="turn2(44)"></button>
+                <button class="colorBtn" id="color55" onclick="turn2(55)"></button>
+                <button class="colorBtn" id="color66" onclick="turn2(66)"></button>
+            </div>
+            <div class="col">
+                <button class="colorBtn" id="color77" onclick="turn2(77)"></button>
+                <button class="colorBtn" id="color88" onclick="turn2(88)"></button>
+                <button class="colorBtn" id="color99" onclick="turn2(99)"></button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <h2 id="check"></h2>
+        </div>
+    </div>
+</div>
+
+<!--<button class="btn btn-danger" onclick="removeByJquery()">Click to remove hello world</button>-->
+<!--<br>-->
+<!--<button class="btn btn-primary" id="btn1" onclick="add()">Click to add hello world</button>-->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="script.js" type="application/javascript"></script>
+<script src="js/gamePage.js.js" type="application/javascript"></script>
 <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</body></html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

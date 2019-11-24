@@ -1,94 +1,143 @@
-var current = "teal";
-var colors = ["none", "none", "none", "none", "none", "none", "none", "none", "none"];
-
-function getRandomColor() {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
+function removeByJquery() {
+    let element = $("#card-to-delete");
+    element.remove();
 }
+
+function add() {
+    let but2 = $("#button-to-add");
+    but2.after("<h2>Hello, ma friend</h2>");
+}
+
+let colorGamer1;
+let colorGamer2;
+
+function turn2(number) {
+    for (let i = 0; i <= 90; i+=10) {
+        if(i == number){
+            colorGamer1 = $("#color"+i).css("background-color");
+            $("#colorPlayer1").css("background-color", colorGamer1);
+        }
+    }
+    console.log(colorGamer1);
+    for (let i = 0; i <= 99; i+=11) {
+        if(i == number){
+            colorGamer2 = $("#color"+i).css("background-color");
+            $("#colorPlayer2").css("background-color",colorGamer2);
+        }
+    }
+
+    console.log(colorGamer2);
+    if (colorGamer1 === colorGamer2) {
+        $("#check").text("Выберите два разных цвета");
+    } else if (colorGamer1 === undefined || colorGamer2 === undefined) {
+        $("#check").text("Выберите второй цвет");
+    } else {
+        $("#check").text("");
+    }
+
+}
+
+
+let current = colorGamer1;
+let colors = ["none", "none", "none", "none", "none", "none", "none", "none", "none"];
+
+let score1 = 0;
+let score2 = 0;
 
 function turn(number) {
-    //	$("#s" + number).css("background-color", current); .non-animate
-    $("#s" + number).animate({ // animate
+    // $("#s" + number).css("background-color", current);
+    $("#a" + number).animate({
         backgroundColor: current,
-        marginTop: 3,
-        borderColor: "black",
-    }, 322)
-
+        borderColor: "#fff"
+    }, 300);
     colors[number - 1] = current;
-    if (current === "teal") {
-        current = "aqua";
+    if (current === colorGamer1) {
+        current = colorGamer2;
     } else {
-        current = "teal";
+        current = colorGamer1;
     }
-    $("#s" + number).prop("disabled", "true");
-    var result = check();
+
+    $("#a" + number).prop("disabled", true);
+    let result = check();
     if (result != "none") {
-        for (let i = 0; i < 9; i++) {
-            $("#s" + i).prop("disabled", "true");
+        for (let i = 0; i < 10; i++) {
+            $("#a" + i).prop("disabled", true);
         }
-        $("#result").animate({ // animate
+        $("#result").animate({
             backgroundColor: result,
-        }, 322);
-        $("#result").text("<Winner>");
+        }, 200);
+        if (result === colorGamer1) {
+            score1++;
+            $("#score1").text(score1);
+        } else if (result === colorGamer2) {
+            score2++;
+            $("#score2").text(score2);
+        } else {
+            $("#result").text("Draw");
+        }
     }
-    if (result == "draw") {
-        $("#result").animate({ // animate
-            backgroundColor: "white",
-        }, 322);
-        $("#result").text("<Draw>");
-    }
+    console.log(result);
 }
 
-
 function check() {
-    let count = 0;
-    if (colors[0] == colors[1] && colors[1] == colors[2] && colors[0] != "none") {
-        return colors[0];
+    for (let i = 0; i < 7; i += 3) {
+        if (colors[0 + i] == colors[1 + i] && colors[1 + i] == colors[2 + i] && colors[2 + i] != "none") {
+            return colors[0 + i];
+        }
     }
-    if (colors[3] == colors[4] && colors[4] == colors[5] && colors[0] != "none") {
-        return colors[3];
-    }
-    if (colors[6] == colors[7] && colors[7] == colors[8] && colors[0] != "none") {
-        return colors[6];
-    }
-    if (colors[0] == colors[3] && colors[3] == colors[6] && colors[0] != "none") {
-        return colors[0];
-    }
-    if (colors[1] == colors[4] && colors[4] == colors[7] && colors[0] != "none") {
-        return colors[1];
-    }
-    if (colors[2] == colors[5] && colors[5] == colors[8] && colors[0] != "none") {
-        return colors[2];
+    for (let i = 0; i < 3; i += 1) {
+        if (colors[0 + i] == colors[3 + i] && colors[3 + i] == colors[6 + i] && colors[6 + i] != "none") {
+            return colors[0 + i];
+        }
     }
     if (colors[0] == colors[4] && colors[4] == colors[8] && colors[0] != "none") {
         return colors[0];
+
+
     }
-    if (colors[2] == colors[4] && colors[4] == colors[6] && colors[0] != "none") {
+    if (colors[2] == colors[4] && colors[4] == colors[6] && colors[6] != "none") {
         return colors[2];
     }
+    let wasNone = false;
     for (let i = 0; i < 9; i++) {
         if (colors[i] == "none") {
-            count++;
+            wasNone = true;
         }
     }
-    if (count == 0) {
+    if (wasNone == false) {
         return "draw";
-    } else {
-        return "none";
+    }
+    return "none";
+}
+
+function Play() {
+    if (colorGamer1 !== colorGamer2) {
+        for (let i = 1; i < 10; i++) {
+            $("#a" + i).css("background-color", "#d1ecf1");
+            $("#a" + i).prop("disabled", false);
+        }
+        for (let i = 0; i < 9; i++) {
+            colors[i] = "none";
+        }
+        current = colorGamer1;
+        $("#result").css("background", "none");
+        $("#result").text("");
+
+        for (let i = 1; i <= 2; i++) {
+            $("#player"+i).prop('disabled', true);
+            $("#player"+i).css("border", "none");
+            $("#player"+i).css("background-color", "#fff");
+        }
+        for (let i = 10; i <= 90; i+=10) {
+            $("#color"+i).prop('disabled', true);
+        }
+        for (let i = 11; i <= 99; i+=11) {
+            $("#color"+i).prop('disabled', true);
+        }
+
     }
 }
 
-function restart() {
-    for (let i = 0; i < 9; i++) {
-        colors[i] = "none";
-    }
-    for (let i = 1; i < 10; i++) {
-        $("#s" + i).animate({
-            backgroundColor: white
-        }, 322)
-    }
+function Name(namePlayer) {
+    console.log(namePlayer)
 }

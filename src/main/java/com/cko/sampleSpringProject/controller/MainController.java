@@ -2,6 +2,7 @@ package com.cko.sampleSpringProject.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MainController {
@@ -18,6 +19,10 @@ public class MainController {
     public String showGamePage(){
         return "gamePage";
     }
-
+    @GetMapping("/testPage")
+    public String showTestPage(@RequestParam String argument){
+        System.out.println(argument);
+        return "testPage";
+    }
 
 }

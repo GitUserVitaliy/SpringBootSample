@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/map")
 public class MapController {
-
-
     @GetMapping("/test")
     public String showDefaultMap(){
         
