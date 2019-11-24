@@ -3,7 +3,6 @@ function test() {
 }
 
 
-
 ymaps.ready(init);
 
 function init() {

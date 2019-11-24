@@ -12,17 +12,17 @@ let colorGamer1;
 let colorGamer2;
 
 function turn2(number) {
-    for (let i = 0; i <= 90; i+=10) {
-        if(i == number){
-            colorGamer1 = $("#color"+i).css("background-color");
+    for (let i = 0; i <= 90; i += 10) {
+        if (i == number) {
+            colorGamer1 = $("#color" + i).css("background-color");
             $("#colorPlayer1").css("background-color", colorGamer1);
         }
     }
     console.log(colorGamer1);
-    for (let i = 0; i <= 99; i+=11) {
-        if(i == number){
-            colorGamer2 = $("#color"+i).css("background-color");
-            $("#colorPlayer2").css("background-color",colorGamer2);
+    for (let i = 0; i <= 99; i += 11) {
+        if (i == number) {
+            colorGamer2 = $("#color" + i).css("background-color");
+            $("#colorPlayer2").css("background-color", colorGamer2);
         }
     }
 
@@ -124,15 +124,15 @@ function Play() {
         $("#result").text("");
 
         for (let i = 1; i <= 2; i++) {
-            $("#player"+i).prop('disabled', true);
-            $("#player"+i).css("border", "none");
-            $("#player"+i).css("background-color", "#fff");
+            $("#player" + i).prop('disabled', true);
+            $("#player" + i).css("border", "none");
+            $("#player" + i).css("background-color", "#fff");
         }
-        for (let i = 10; i <= 90; i+=10) {
-            $("#color"+i).prop('disabled', true);
+        for (let i = 10; i <= 90; i += 10) {
+            $("#color" + i).prop('disabled', true);
         }
-        for (let i = 11; i <= 99; i+=11) {
-            $("#color"+i).prop('disabled', true);
+        for (let i = 11; i <= 99; i += 11) {
+            $("#color" + i).prop('disabled', true);
         }
 
     }

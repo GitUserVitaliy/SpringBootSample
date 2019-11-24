@@ -20,9 +20,9 @@ public class User implements UserDetails {
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = {
-            CascadeType.REFRESH,CascadeType.MERGE})
+            CascadeType.REFRESH, CascadeType.MERGE})
     @JoinTable(
-            name ="users_authorities",
+            name = "users_authorities",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "authority_id")
     )
@@ -62,10 +62,9 @@ public class User implements UserDetails {
     }
 
 
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-       return authorities;
+        return authorities;
     }
 
     @Override

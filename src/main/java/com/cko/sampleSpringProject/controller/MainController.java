@@ -24,5 +24,9 @@ public class MainController {
         System.out.println(argument);
         return "testPage";
     }
+    @GetMapping("/startPageFilms")
+    public String showStartPageFilms(){
+        return "startPageFilms";
+    }
 
 }
