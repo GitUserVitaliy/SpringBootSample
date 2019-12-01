@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/films")
@@ -30,11 +31,21 @@ public class FilmController {
     public String showAddFilms(){
         return "FilmService/AddFilm";
     }
-    @PostMapping("/edit")
-    public RedirectView showEditFilms(Film film){
-        filmDAO.save(film);
-        return new RedirectView("/FilmService/AllFilms");
+    @GetMapping("/editFilm")
+    public ModelAndView showEditFilm(@RequestParam Long id) {
+        ModelAndView modelAndView = new ModelAndView();
+        Film film = filmDAO.findAllById(id);
+        modelAndView.addObject("film",film);
+        modelAndView.setViewName("editFilm");
+
+        return modelAndView;
     }
+    @PostMapping("/editFilm")
+    public RedirectView editFie(Film film){
+        filmDAO.save(film);
+        return new RedirectView("/all");
+    }
+
     @GetMapping("/test")
     public ModelAndView showTestPage(@RequestParam long id){
         ModelAndView modelAndView = new ModelAndView();
