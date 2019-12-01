@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <!-- Required meta tags -->
@@ -44,52 +44,30 @@
         </form>
     </div>
 </nav>
-<div class="container">
-    <div class="row">
-        <div class="col-9">
-        </div>
-        <div class="col-2">
-            <div class="textCreate">
-                <a href="https://vk.com">
-                    <span data-index="4-0" data-value="Create Product">Create Product</span>
-                </a>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-1">
-            <a>ID</a>
-        </div>
-        <div class="col-2">
-            <a>Product Title</a>
-        </div>
-        <div class="col-6">
-            <a>Product Body</a>
-        </div>
-        <div class="col-3">
-            <a>Actions</a>
-        </div>
-    </div>
-    <hr>
-    <div class="row">
-        <div class="col-1">
-            <a> </a> <!-- ID -->
-        </div>
-        <div class="col-2">
-            <a> </a><!-- название -->
-        </div>
-        <div class="col-2">
-            <a> </a> <!-- рейтинг -->
-        </div>
-        <div class="col-4">
-            <a> </a> <!-- возраст -->
-        </div>
-        <div class="col-3">
-            <button type="button" class="btn btn-info">Edit</button>
-            <button type="button" class="btn btn-danger">Delete</button>
-        </div>
-    </div>
-    <hr>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Title</th>
+        <th scope="col">Rating</th>
+        <th scope="col">Age</th>
+        <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="film : ${films}">
+        <td th:text="${film.id}"></td>
+        <td th:text="${film.title}"></td>
+        <td th:text="${film.rating}"></td>
+        <td th:text="${film.age}"></td>
+        <td>
+            <a class="btn btn-primary" th:href="@{'/FilmService/EditFilm?id=' + ${film.id}}">Edit</a>
+            <a class="btn btn-danger" th:href="@{'/FilmService/DeleteFilm?id=' + ${film.id}}">Delete</a>
+        </td>
+    </tr>
+
+    </tbody>
+</table>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

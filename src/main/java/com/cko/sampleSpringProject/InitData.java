@@ -36,7 +36,6 @@ public class InitData {
     public void initData() {
         Film film = new Film("Rosomaha",9,18);
         filmDAO.save(film);
-//      smscSender.send_sms("89775548911","TEST MESSAGE",1, "", "", 0, "", "");
         initUserAndRoles();
     }
 
