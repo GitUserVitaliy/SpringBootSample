@@ -45,6 +45,9 @@ public class InitData {
         authorityService.insert(adminAuthority);
         authorityService.insert(userAuthority);
 
+        for (int i = 0; i < 10; i++) {
+
+        }
         List<Authority> authorities = new ArrayList<Authority>();
         authorities.add(adminAuthority);
         userService.insert(new User("1@mail.ru", bCryptPasswordEncoder.encode("1"), authorities));

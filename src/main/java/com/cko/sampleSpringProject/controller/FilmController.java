@@ -31,15 +31,15 @@ public class FilmController {
     public String showAddFilms(){
         return "FilmService/AddFilm";
     }
-    @GetMapping("/editFilm")
-    public ModelAndView showEditFilm(@RequestParam Long id) {
-        ModelAndView modelAndView = new ModelAndView();
-        Film film = filmDAO.findAllById(id);
-        modelAndView.addObject("film",film);
-        modelAndView.setViewName("editFilm");
-
-        return modelAndView;
-    }
+//    @GetMapping("/editFilm")
+//    public ModelAndView showEditFilm(@RequestParam Long id) {
+//        ModelAndView modelAndView = new ModelAndView();
+//        Film film = filmDAO.findAllById(id);
+//        modelAndView.addObject("film",film);
+//        modelAndView.setViewName("editFilm");
+//
+//        return modelAndView;
+//    }
     @PostMapping("/editFilm")
     public RedirectView editFie(Film film){
         filmDAO.save(film);
