@@ -1,4 +1,4 @@
-package com.cko.sampleSpringProject.controller;
+package com.cko.sampleSpringProject.controller.rest;
 import com.cko.sampleSpringProject.dao.FilmDAO;
 import com.cko.sampleSpringProject.model.Film;
 import org.springframework.beans.factory.annotation.Autowired;
