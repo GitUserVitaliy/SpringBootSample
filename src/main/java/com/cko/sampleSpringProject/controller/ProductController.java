@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
@@ -14,16 +15,17 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
+@RequestMapping("/products")
 public class ProductController {
     @Autowired
     ProductDAO productDAO;
     Long qq;
 
 
-    @GetMapping("/products/all")
+    @GetMapping("/all")
     public ModelAndView allProducts() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("Product/AllProducts");
+        modelAndView.setViewName("Products/AllProducts");
         List<Products> productList = productDAO.findAll();
 
         modelAndView.addObject("products", productList);
@@ -42,19 +44,19 @@ public class ProductController {
         return "Products/AllProducts";
     }
 
-    @GetMapping("/products/add")
+    @GetMapping("/add")
     public String addProducts() {
-        return "Product/AddProducts";
+        return "Products/AddProducts";
     }
 
-    @PostMapping("/products/add")
+    @PostMapping("/add")
     public RedirectView addNewProducts(Products products) {
         productDAO.save(products);
         return new RedirectView("/products/all");
     }
 
 
-    @GetMapping("/products/edit")
+    @GetMapping("/edit")
     public ModelAndView editProducts(Long id) {
         ModelAndView modelAndView = new ModelAndView();
         Products products = productDAO.findProductsById(id);
@@ -63,13 +65,13 @@ public class ProductController {
         return modelAndView;
     }
 
-    @PostMapping("/products/edit")
+    @PostMapping("/edit")
     public RedirectView editFilm(Products products) {
         productDAO.save(products);
         return new RedirectView("Products/EditProducts");
     }
 
-    @GetMapping("/products/delete")
+    @GetMapping("/delete")
     public RedirectView Delete(@RequestParam long id) {
         Products products = productDAO.findProductsById(id);
         if (products.getAmount() > 0) {
@@ -80,7 +82,7 @@ public class ProductController {
     }
 
 
-    @GetMapping("/products/buy")
+    @GetMapping("/buy")
     public ModelAndView ProcBuy(@RequestParam Long id) {
         ModelAndView modelAndView = new ModelAndView();
         Products products = productDAO.findProductsById(id);
@@ -89,7 +91,7 @@ public class ProductController {
         modelAndView.setViewName("Products/ProductPage");
         return modelAndView;
     }
-    @PostMapping("/products/buy")
+    @PostMapping("/buy")
     public RedirectView Buy(int count) {
         Products products = productDAO.findProductsById(qq);
         if (products.getAmount() > count) {
@@ -104,12 +106,12 @@ public class ProductController {
         }
     }
 
-    @GetMapping("products/tenQ")
+    @GetMapping("/tenQ")
     public String tenQ() {
         return "Products/ProductTenQ";
     }
 
-    @GetMapping("products/error")
+    @GetMapping("/error")
     public String error() {
         return "Products/ProductError";
     }

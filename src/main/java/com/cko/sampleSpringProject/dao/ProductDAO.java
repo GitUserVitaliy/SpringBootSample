@@ -7,7 +7,9 @@ import java.util.List;
 
 public interface ProductDAO extends CrudRepository<Products, Long> {
     Products findProductsById(Long id);
+
     void deleteById(Long id);
+
     List<Products> findAll();
 
     List<Products> findByPriceLessThanEqual(int price);

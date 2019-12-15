@@ -22,14 +22,14 @@ public class FilmController {
     @GetMapping("/all")
     public ModelAndView showAllFilms(){
        ModelAndView modelAndView = new ModelAndView();
-       modelAndView.setViewName("FilmService/AllFilms");
+       modelAndView.setViewName("Films/AllFilms");
         List<Film> listFilms = filmDAO.findAll();
         modelAndView.addObject("films", listFilms);
        return modelAndView;
     }
     @RequestMapping("/add")
     public String showAddFilms(){
-        return "FilmService/AddFilm";
+        return "Films/AddFilm";
     }
 //    @GetMapping("/editFilm")
 //    public ModelAndView showEditFilm(@RequestParam Long id) {

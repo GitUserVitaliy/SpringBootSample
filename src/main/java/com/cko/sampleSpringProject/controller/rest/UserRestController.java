@@ -11,10 +11,10 @@ public class UserRestController {
     @Autowired
     UserDAO userDAO;
 
-    @PostMapping("/add")
-    public void addUser() {
-
-    }
+//    @PostMapping("/add")
+//    public void addUser() {
+//
+//    }
 
     @GetMapping
     public User getUserById(@RequestParam Long id) {
