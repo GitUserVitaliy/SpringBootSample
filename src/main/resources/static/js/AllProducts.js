@@ -1,4 +1,4 @@
-$(document).ready.(function () {
+$(function() {
     alert("loaded");
     $.ajax({
         url: '/api/products/all',
@@ -7,7 +7,7 @@ $(document).ready.(function () {
         dataType: 'json',
         success: function (product) {
             for (let i = 0; i < product.length; i++) {
-                $("forAdd").before("<tr>" +
+                $("#forAdd").before("<tr>" +
                     "<td>" + product[i].id + "</td>" +
                     "<td>" + product[i].name + "</td>" +
                     "<td>" + product[i].price + "</td>" +
@@ -23,6 +23,31 @@ $(document).ready.(function () {
             alert('error');
             console.log(response);
         }
-    })
+    });
+});
+
+function addProducts() {
+    var name = $('#name').val();
+    var price = $('#price').val();
+    var amount = $('#amount').val();
+
+    var newProduct = {
+        'name' : name,
+        'price' : price,
+        'amount' : amount,
+    }
+    $.ajax({
+        method: 'post',
+        url: "/api/products/add",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify(newProduct),
+        success: function () {
+        window.location.replace("/AllProducts")
+        },
+        error: function (error) {
+
+        }
+    });
+}
 
 

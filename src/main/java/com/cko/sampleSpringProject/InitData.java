@@ -51,6 +51,7 @@ public class InitData {
         //Film films = new Film("Rosomahaaa",9,18);
         //filmDAO.save(film);
         //filmDAO.save(films);
+        initProduct();
         initFilms();
         initUserAndRoles();
     }
