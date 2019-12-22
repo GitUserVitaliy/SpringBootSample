@@ -14,7 +14,7 @@ public class ProductRestController {
     @Autowired
     ProductDAO productDAO;
     @PostMapping("/add")
-    public void addProduct(@RequestParam Products products) {
+    public void addProduct(@RequestBody Products products) {
         productDAO.save(products);
     }
     @GetMapping("/get")

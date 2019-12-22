@@ -1,5 +1,4 @@
 $(function() {
-    alert("loaded");
     $.ajax({
         url: '/api/products/all',
         type: 'get',
@@ -13,7 +12,7 @@ $(function() {
                     "<td>" + product[i].price + "</td>" +
                     "<td>" + product[i].amount + "</td>" +
                     "<td>" +
-                    "<a class=\"btn btn-info\" onclick=''>Edit</a>" +
+                    "<button class=\"btn btn-info\" data-toggle=\"modal\" data-target=\"#edit-modal\" onclick=\"fillModal(" + product[i].id + ")\">Edit</button>" +
                     "<a class=\"btn btn-danger\" href=\"/products/deleteProduct?id=" + product[i].id + "\">Delete</a>" +
                     "</td>" +
                     "</tr>")
@@ -26,10 +25,25 @@ $(function() {
     });
 });
 
+function fillModal(id) {
+    alert(id);
+    $.ajax({
+        method: "get",
+        url: "/api/products/get?id=" + id,
+        contentType: "application/json; charset=utf-8",
+        success: function (product) {
+            $("#i-id").val(product.id);
+            $("#i-name").val(product.name);
+            $("#i-price").val(product.price);
+            $("#i-amount").val(product.amount);
+        }
+    })
+}
+
 function addProducts() {
-    var name = $('#name').val();
-    var price = $('#price').val();
-    var amount = $('#amount').val();
+    var name = $('#name-input').val();
+    var price = $('#price-input').val();
+    var amount = $('#amount-input').val();
 
     var newProduct = {
         'name' : name,
@@ -42,10 +56,10 @@ function addProducts() {
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify(newProduct),
         success: function () {
-        window.location.replace("/AllProducts")
+        window.location.replace("/products/all")
         },
         error: function (error) {
-
+            alert("error");
         }
     });
 }
